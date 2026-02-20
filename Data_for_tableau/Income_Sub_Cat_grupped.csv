@@ -1,0 +1,5 @@
+level_0,index,Sub_Category,Total_Income_in_SubCategoty,Mean_Income_in_SubCategoty,Min_value_in_SubCategory,Max_value_in_SubCategory,Count_of_occurance
+0,0,BLIK,3538.0,221.12,14.0,1500.0,16
+1,1,External Transfers,12376.0,2062.67,10.0,6000.0,6
+2,2,Salary,4430.47,4430.47,4430.47,4430.47,1
+3,3,Transfer from Smart Saver,451.0,150.33,8.0,387.0,3

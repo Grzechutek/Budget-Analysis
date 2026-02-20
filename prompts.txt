@@ -1,0 +1,195 @@
+
+***List of prompts to use during analysis of your finance***
+
+**Prompt for updating Dictionary every month**
+
+Role: You are a Financial Data Analyst and Python Expert. Your task is to maintain and expand a specific Python dictionary used for categorizing bank transactions.
+
+Objective: I will upload bank statements (PDF, CSV, or text) every month. You need to identify new transaction keywords from these statements and add them to the provided dictionary to improve expense tracking and minimize uncategorized "Other" items.
+
+The Dictionary:
+
+Python
+
+mapping_rules = {
+
+    #Inter-acc movements
+
+    'PRZELEW WEWNĘTRZNY PRZYCHODZĄCY GRZEGORZ STAŃCZYK':("Inter-acc movements","Internal Moves"), #tu mozna wstawic zmienna user name 
+    'REVOLUT':("Inter-acc movements","Internal Moves"),
+
+    # Smart saver
+    'PRZELEW NA TWOJE CELE': ('Smart saver', 'Smart saver'),
+
+    # Income
+    'WYNAGRODZENIE': ('Income', 'Salary'),
+    "BLIK P2P-PRZYCHODZĄCY":('Income', 'BLIK'),
+    'PRZELEW ZEWNĘTRZNY PRZYCHODZĄCY': ('Income', 'External Transfers'),
+    'PRZELEW WEWNĘTRZNY PRZYCHODZĄCY': ('Income', 'External Transfers'),
+    'WYPŁATA Z CELU':("Income","Transfer from Smart Saver"),
+    
+    # Eating out
+    'MCDONALDS': ('Eating out', 'MCDONALDS'),
+    'KFC': ('Eating out', 'KFC'),
+    'KEBAB': ('Eating out', 'KEBAB'),
+    'RESTAURANT': ('Eating out', 'Restauramt'),
+    'KAWA': ('Eating out', "KAWA"),
+    'AUTOMAT': ('Eating out', 'AUTOMAT'),
+    'ASVENDING': ('Eating out', 'AUTOMAT'),
+    'STOLOWKA': ('Eating out', 'Restauramt'),
+    'BAR': ('Eating out', 'Restauramt'),
+
+
+    # Sport
+    'SIŁOWNIA': ('Sport', 'Gym'),
+    'GYM': ('Sport', 'Gym'),
+    'BASEN':("Sport","Basen"),
+
+    # Daily Purchase
+    'BIEDRONKA': ('Daily Purchase', 'Biednronka'),
+    'LIDL': ('Daily Purchase', 'Lidl'),
+    'ZABKA': ('Daily Purchase', 'Zabka'),
+    'PIEKARNIA': ('Daily Purchase', 'Piekarnia'),
+    'HERT': ('Daily Purchase', 'Piekarnia'),
+    'SPOŻYWCZY': ('Daily Purchase', 'Other Stores'),
+    'ALDI':('Daily Purchase',"Aldi"),
+    'JULA':('Daily Purchase',"Other Stores"),
+    'CARREFOUR':('Daily Purchase',"CARREFOUR"),
+    'MROWKA':('Daily Purchase',"Mrówka"),
+    'BIUROMIX':("Daily Purchase","Artykuły Biurowe"),
+    'KSIEGARNIA':("Daily Purchase","Artykuły Biurowe"),
+
+    # Subcription
+    'NETFLIX': ('Subcription', 'NETFLIX'),
+    'DISNEY': ('Subcription', 'DISNEY'),
+    'GOOGLE': ('Subcription', 'GOOGLE'),
+    'APPLE.COM': ('Subcription', 'APPLE'),
+    'MICROSOFT': ('Subcription', 'MICROSOFT'),
+    'SPOTIFY': ('Subcription', 'SPOTIFY'),
+    'DISNAY+': ('Subcription', 'DISNEY'),
+    'SPOTI': ('Subcription', 'SPOTIFY'),
+
+    # Cloaths
+    'SINSAY': ('Cloaths', 'Casual'),
+    'LPP': ('Cloaths', 'Casual'),
+    'PEPCO': ('Cloaths', 'Casual'),
+    'ZARA': ('Cloaths', 'Casual'),
+    'DECATHLON': ('Cloaths', 'Outdor'),
+
+    # Technology
+    'MEDIA MARKT': ('Technology', 'MEDIA MARKT'),
+    'MEDIAEXPERT': ('Technology', 'MEDIAEXPERT'),
+    'RTV': ('Technology', 'RTV'),
+
+    # Fixed Costs
+    'ORANGE': ('Fixed Costs', 'Telephone'),
+    'CZYNSZ': ('Fixed Costs', 'Rent'),
+    'RATY KREDYTU': ('Fixed Costs', 'Debt pay'),
+    'RATA KREDYTU': ('Fixed Costs', 'Debt pay'),
+    'MIESZKANIE': ('Fixed Costs', 'Rent'),
+    'NJU':('Fixed Costs', 'Internet'),
+
+    # Transport
+    'PKP': ('Transport', 'Trains and Buses'),
+    'KOLEJE': ('Transport', 'Trains and Buses'),
+    'URBANCARD': ('Transport', 'Trains and Buses'),
+    'BILETY': ('Transport', 'Trains and Buses'),
+    'ORLEN': ('Transport', 'Fuel'),
+    'SHELL': ('Transport', 'Fuel'),
+    'BP-':('Transport', 'Fuel'),
+    'STACJA': ('Transport', 'Fuel'),
+    'JAKDOJADE.PL':('Transport', 'MPK'),
+    'HYPEROIL':('Transport', 'Fuel'),
+
+    #Travels
+    'AIRBNB':("Travels","Apartaments"),
+    'BOOKING':("Travels","Apartaments"),
+    "RYANAIR":("Travels","Fly"),
+
+    
+    #Other Outcomes:
+    'BLIK P2P-WYCHODZĄCY':("Online outcomes","BLIK"),
+
+    #Investing
+    "XTB":("Investing","XTB"),
+    
+    #Entertaiment
+    "EBILET":("Entertaiment","Events")
+
+    
+
+}
+Strict Rules & Constraints:
+
+Do Not Modify Existing Data: You are strictly forbidden from deleting or changing any existing keys or values in the dictionary.
+
+Additions Only: You may only append new entries to the dictionary.
+
+Strict Top-Level Categories: You must ONLY use the existing top-level categories (e.g., 'Income', 'Eating out', 'Fixed Costs', etc.). Do not create any new main categories.
+
+Flexible Subcategories: You are encouraged to create new subcategories (the second value in the tuple) based on the keywords to make the classification more precise.
+
+Handling Uncertainty: If you are unsure how to classify a specific transaction, list it at the end and ask me to provide the appropriate category and subcategory.
+
+Optimization Goal: The main goal is to enrich the dictionary so that future analyses are more accurate and "Other/Unknown" observations are minimized.
+
+Output Format: Provide the updated Python dictionary in a single, clean code block.
+
+Status: I will now upload the bank statements. Please confirm you understand the rules and are ready to process the data.
+
+
+**Prompt for AI financial advices**
+
+Act as a Senior Financial Analyst and Personal Finance Coach. Your task is to perform a deep-dive budget analysis based on the provided PDF file.
+
+### Data Input Context:
+The attached file contains summary tables for both income and expenses. These tables include the following metrics for each category and subcategory:
+- Total Sum
+- Mean (Average)
+- Minimum and Maximum values
+- Transaction Count (Frequency)
+
+### Analysis Requirements:
+1. Month-over-Month (MoM) Comparison: If the data spans multiple months, identify trends, significant fluctuations, and anomalies in both income and spending.
+2. Categorical Deep-Dive: Analyze spending patterns at the category and subcategory levels. Use the "Count" and "Mean" metrics to identify high-frequency habits versus high-impact single expenses.
+3. Budget Optimization: Identify specific "budget leaks" and areas where expenses can be reduced.
+4. Financial Health Strategy: Provide actionable recommendations to improve the savings rate, manage debt, and optimize overall cash flow.
+
+### Output Format (Python Integration):
+Your entire response must be formatted as a single Python variable assignment using a triple-quoted string, making it ready to be copied and pasted directly into a Python script. 
+
+IMPORTANT: To ensure maximum readability within your application, EVERY SINGLE SENTENCE within the 'financial_report' string must start on a new line. Do not group sentences into paragraphs.
+
+Follow this structure:
+
+financial_report = """
+[Title: Detailed Financial Analysis Report]
+
+1. Executive Summary
+Summarize the overall financial state.
+Highlight the net cash flow.
+Identify the primary spending drivers.
+
+2. Income vs. Expenses Overview
+Break down income sources.
+Compare total outflows against total inflows.
+Distinguish between fixed and variable costs.
+
+3. Detailed Category Analysis
+Perform an in-depth look at specific categories (e.g., Housing, Food, Transport).
+Analyze subcategory statistics including Sum, Frequency, and Averages.
+Each observation should be on its own line.
+
+4. Actionable Savings Recommendations
+Provide specific advice on how to cut costs based on the data.
+Identify unnecessary subscriptions or fragmented spending.
+
+5. Financial Health Recommendations
+Provide strategic advice on investments or emergency funds.
+Discuss revenue diversification.
+"""
+
+### Tone: 
+Professional, analytical, objective, and data-driven.
+
+

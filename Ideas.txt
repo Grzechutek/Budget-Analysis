@@ -1,0 +1,15 @@
+
+Multiple persona in haushold:
+-Add possibility to compering and adding common expenses beetween different persons in the same household
+-Make func data_cleaning_for_gpt more efficient, to minimize manual cleaning
+-Make commands to move used file to old data folder 
+-Add prognosis for further months
+-plotfy  do robienia 
+
+
+
+Filtry:
+-timeline
+-select box po kategoriach 
+
+-dodaj tez count w róznych sub categoriach

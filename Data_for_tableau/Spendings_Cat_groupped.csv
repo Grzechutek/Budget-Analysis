@@ -1,0 +1,15 @@
+level_0,index,Main_Category,Total_Spendings_in_Categoty,Mean_Spendings_in_Categoty,Min_value_in_Category,Max_value_in_Category
+0,0,Cloaths,489.92,122.48,39.99,339.94
+1,1,Daily Purchase,1218.59,60.93,2.19,432.6
+2,2,Eating out,467.68,21.26,4.0,77.2
+3,3,Entertaiment,1074.5,1074.5,1074.5,1074.5
+4,4,Fixed Costs,7505.3,1072.19,5.0,3600.0
+5,5,Inter-acc movements,2808.0,561.6,8.0,1000.0
+6,6,Investing,12000.0,12000.0,12000.0,12000.0
+7,7,Online outcomes,232.64,46.53,15.64,110.0
+8,8,Others,227.31,25.26,1.0,89.99
+9,9,Smart saver,250.8,3.58,0.11,120.0
+10,10,Sport,12.0,12.0,12.0,12.0
+11,11,Subcription,82.77,16.55,6.3,42.99
+12,12,Transport,1253.63,83.58,1.6,193.91
+13,13,Travels,1101.75,1101.75,1101.75,1101.75

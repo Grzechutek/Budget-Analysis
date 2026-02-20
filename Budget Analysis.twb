@@ -1,0 +1,765 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20243.24.1010.1014                               -->
+<workbook original-version='18.1' source-build='2024.3.0 (20243.24.1010.1014)' source-platform='mac' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AnimationOnByDefault />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelExtractV2 />
+    <ObjectModelTableType />
+    <SchemaViewerObjectModel />
+    <SheetIdentifierTracking />
+    <_.fcp.VConnDownstreamExtractsWithWarnings.true...VConnDownstreamExtractsWithWarnings />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='Multiple Connections' inline='true' name='federated.1s20pde0jkn8i413pp9ti0v4n3k2' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='Income' name='textscan.0nsi09y1uq53qn12l8j8c07jix14'>
+            <connection class='textscan' directory='/Users/User/Desktop/Data Science tools/financial projekt/Data_for_tableau' filename='Income.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+      </connection>
+      <aliases enabled='yes' />
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <object-graph />
+    </datasource>
+    <datasource caption='Income' inline='true' name='federated.1iakkyc05zxua014q7taa1wfxxl7' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='Income_Sub_Cat_grupped' name='textscan.0qkza0h1w9xs4119xc3xc0f27nt2'>
+            <connection class='textscan' directory='/Users/User/Desktop/Data Science tools/financial projekt/Data_for_tableau' filename='Income_Sub_Cat_grupped.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.0qkza0h1w9xs4119xc3xc0f27nt2' name='Income.csv' table='[Income#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='date' name='Posting Date' ordinal='0' />
+            <column datatype='date' name='Data of Transaction' ordinal='1' />
+            <column datatype='string' name='Description' ordinal='2' />
+            <column datatype='real' name='Amt' ordinal='3' />
+            <column datatype='string' name='Acc Balance after opp' ordinal='4' />
+            <column datatype='string' name='Main_Category' ordinal='5' />
+            <column datatype='string' name='Sub_Category' ordinal='6' />
+          </columns>
+        </relation>
+        <cols>
+          <map key='[Acc Balance after opp]' value='[Income.csv].[Acc Balance after opp]' />
+          <map key='[Amt]' value='[Income.csv].[Amt]' />
+          <map key='[Data of Transaction]' value='[Income.csv].[Data of Transaction]' />
+          <map key='[Description]' value='[Income.csv].[Description]' />
+          <map key='[Main_Category]' value='[Income.csv].[Main_Category]' />
+          <map key='[Posting Date]' value='[Income.csv].[Posting Date]' />
+          <map key='[Sub_Category (Income.csv)]' value='[Income.csv].[Sub_Category]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Income.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Posting Date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[Posting Date]</local-name>
+            <parent-name>[Income.csv]</parent-name>
+            <remote-alias>Posting Date</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Income.csv_6F5B5408D7E9428C8406823655C159CE]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Data of Transaction</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[Data of Transaction]</local-name>
+            <parent-name>[Income.csv]</parent-name>
+            <remote-alias>Data of Transaction</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Income.csv_6F5B5408D7E9428C8406823655C159CE]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Description</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Description]</local-name>
+            <parent-name>[Income.csv]</parent-name>
+            <remote-alias>Description</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[Income.csv_6F5B5408D7E9428C8406823655C159CE]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Amt</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Amt]</local-name>
+            <parent-name>[Income.csv]</parent-name>
+            <remote-alias>Amt</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Income.csv_6F5B5408D7E9428C8406823655C159CE]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Acc Balance after opp</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Acc Balance after opp]</local-name>
+            <parent-name>[Income.csv]</parent-name>
+            <remote-alias>Acc Balance after opp</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[Income.csv_6F5B5408D7E9428C8406823655C159CE]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Main_Category</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Main_Category]</local-name>
+            <parent-name>[Income.csv]</parent-name>
+            <remote-alias>Main_Category</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[Income.csv_6F5B5408D7E9428C8406823655C159CE]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Sub_Category</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Sub_Category (Income.csv)]</local-name>
+            <parent-name>[Income.csv]</parent-name>
+            <remote-alias>Sub_Category</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[Income.csv_6F5B5408D7E9428C8406823655C159CE]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Main Category' datatype='string' name='[Main_Category]' role='dimension' type='nominal' />
+      <column caption='Sub Category (Income.csv)' datatype='string' name='[Sub_Category (Income.csv)]' role='dimension' type='nominal' />
+      <column caption='Income.csv' datatype='table' name='[__tableau_internal_object_id__].[Income.csv_6F5B5408D7E9428C8406823655C159CE]' role='measure' type='quantitative' />
+      <extract _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' object-id='' units='records'>
+        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='/var/folders/lx/hzf7llr53d11btj66zf4sjnw0000gn/T/tableau-temp/#TableauTemp_0611kd419awk0w149b76x1wxjlz6.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='02/19/2026 01:44:14 PM' username='tableau_internal_user'>
+          <relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <cols>
+            <map key='[Acc Balance after opp]' value='[Extract].[Acc Balance after opp]' />
+            <map key='[Amt]' value='[Extract].[Amt]' />
+            <map key='[Data of Transaction]' value='[Extract].[Data of Transaction]' />
+            <map key='[Description]' value='[Extract].[Description]' />
+            <map key='[Main_Category]' value='[Extract].[Main_Category]' />
+            <map key='[Posting Date]' value='[Extract].[Posting Date]' />
+            <map key='[Sub_Category (Income.csv)]' value='[Extract].[Sub_Category]' />
+          </cols>
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>Posting Date</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[Posting Date]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Posting Date</remote-alias>
+              <ordinal>0</ordinal>
+              <family>Income.csv</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>16</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[Income.csv_6F5B5408D7E9428C8406823655C159CE]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Data of Transaction</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[Data of Transaction]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Data of Transaction</remote-alias>
+              <ordinal>1</ordinal>
+              <family>Income.csv</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>16</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[Income.csv_6F5B5408D7E9428C8406823655C159CE]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Description</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Description]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Description</remote-alias>
+              <ordinal>2</ordinal>
+              <family>Income.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>17</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[Income.csv_6F5B5408D7E9428C8406823655C159CE]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Amt</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[Amt]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Amt</remote-alias>
+              <ordinal>3</ordinal>
+              <family>Income.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>17</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[Income.csv_6F5B5408D7E9428C8406823655C159CE]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Acc Balance after opp</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Acc Balance after opp]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Acc Balance after opp</remote-alias>
+              <ordinal>4</ordinal>
+              <family>Income.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>26</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[Income.csv_6F5B5408D7E9428C8406823655C159CE]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Main_Category</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Main_Category]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Main_Category</remote-alias>
+              <ordinal>5</ordinal>
+              <family>Income.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[Income.csv_6F5B5408D7E9428C8406823655C159CE]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Sub_Category</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Sub_Category (Income.csv)]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Sub_Category</remote-alias>
+              <ordinal>6</ordinal>
+              <family>Income.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[Income.csv_6F5B5408D7E9428C8406823655C159CE]</object-id>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <object-graph>
+        <objects>
+          <object caption='Income.csv' id='Income.csv_6F5B5408D7E9428C8406823655C159CE'>
+            <properties context=''>
+              <relation connection='textscan.0qkza0h1w9xs4119xc3xc0f27nt2' name='Income.csv' table='[Income#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='date' name='Posting Date' ordinal='0' />
+                  <column datatype='date' name='Data of Transaction' ordinal='1' />
+                  <column datatype='string' name='Description' ordinal='2' />
+                  <column datatype='real' name='Amt' ordinal='3' />
+                  <column datatype='string' name='Acc Balance after opp' ordinal='4' />
+                  <column datatype='string' name='Main_Category' ordinal='5' />
+                  <column datatype='string' name='Sub_Category' ordinal='6' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Extract' table='[Extract].[Extract]' type='table' />
+            </properties>
+          </object>
+        </objects>
+      </object-graph>
+    </datasource>
+    <datasource caption='Spendings' inline='true' name='federated.1qvi6f80lz6sxw1f2lfej1onih5f' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='Spendings' name='textscan.0is07gu1ajdtzg1cwp00a0tvmekl'>
+            <connection class='textscan' directory='/Users/User/Desktop/Data Science tools/financial projekt/Data_for_tableau' filename='Spendings.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.0is07gu1ajdtzg1cwp00a0tvmekl' name='Spendings.csv' table='[Spendings#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='date' name='Posting Date' ordinal='0' />
+            <column datatype='date' name='Data of Transaction' ordinal='1' />
+            <column datatype='string' name='Description' ordinal='2' />
+            <column datatype='real' name='Amt' ordinal='3' />
+            <column datatype='string' name='Acc Balance after opp' ordinal='4' />
+            <column datatype='string' name='Main_Category' ordinal='5' />
+            <column datatype='string' name='Sub_Category' ordinal='6' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Spendings.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Posting Date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[Posting Date]</local-name>
+            <parent-name>[Spendings.csv]</parent-name>
+            <remote-alias>Posting Date</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Spendings.csv_80CE99ACCE6249C88815413D56A3698E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Data of Transaction</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[Data of Transaction]</local-name>
+            <parent-name>[Spendings.csv]</parent-name>
+            <remote-alias>Data of Transaction</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Spendings.csv_80CE99ACCE6249C88815413D56A3698E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Description</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Description]</local-name>
+            <parent-name>[Spendings.csv]</parent-name>
+            <remote-alias>Description</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[Spendings.csv_80CE99ACCE6249C88815413D56A3698E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Amt</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Amt]</local-name>
+            <parent-name>[Spendings.csv]</parent-name>
+            <remote-alias>Amt</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Spendings.csv_80CE99ACCE6249C88815413D56A3698E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Acc Balance after opp</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Acc Balance after opp]</local-name>
+            <parent-name>[Spendings.csv]</parent-name>
+            <remote-alias>Acc Balance after opp</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[Spendings.csv_80CE99ACCE6249C88815413D56A3698E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Main_Category</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Main_Category]</local-name>
+            <parent-name>[Spendings.csv]</parent-name>
+            <remote-alias>Main_Category</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[Spendings.csv_80CE99ACCE6249C88815413D56A3698E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Sub_Category</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Sub_Category]</local-name>
+            <parent-name>[Spendings.csv]</parent-name>
+            <remote-alias>Sub_Category</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[Spendings.csv_80CE99ACCE6249C88815413D56A3698E]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Main Category' datatype='string' name='[Main_Category]' role='dimension' type='nominal' />
+      <column caption='Sub Category' datatype='string' name='[Sub_Category]' role='dimension' type='nominal' />
+      <column caption='Spendings.csv' datatype='table' name='[__tableau_internal_object_id__].[Spendings.csv_80CE99ACCE6249C88815413D56A3698E]' role='measure' type='quantitative' />
+      <extract _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' object-id='' units='records'>
+        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='/var/folders/lx/hzf7llr53d11btj66zf4sjnw0000gn/T/tableau-temp/#TableauTemp_1m3khmf1knjko813tww4g094g15q.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='02/19/2026 01:44:16 PM' username='tableau_internal_user'>
+          <relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>Posting Date</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[Posting Date]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Posting Date</remote-alias>
+              <ordinal>0</ordinal>
+              <family>Spendings.csv</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>28</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[Spendings.csv_80CE99ACCE6249C88815413D56A3698E]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Data of Transaction</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[Data of Transaction]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Data of Transaction</remote-alias>
+              <ordinal>1</ordinal>
+              <family>Spendings.csv</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>28</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[Spendings.csv_80CE99ACCE6249C88815413D56A3698E]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Description</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Description]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Description</remote-alias>
+              <ordinal>2</ordinal>
+              <family>Spendings.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>150</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[Spendings.csv_80CE99ACCE6249C88815413D56A3698E]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Amt</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[Amt]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Amt</remote-alias>
+              <ordinal>3</ordinal>
+              <family>Spendings.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>132</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[Spendings.csv_80CE99ACCE6249C88815413D56A3698E]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Acc Balance after opp</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Acc Balance after opp]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Acc Balance after opp</remote-alias>
+              <ordinal>4</ordinal>
+              <family>Spendings.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>166</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[Spendings.csv_80CE99ACCE6249C88815413D56A3698E]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Main_Category</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Main_Category]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Main_Category</remote-alias>
+              <ordinal>5</ordinal>
+              <family>Spendings.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>14</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[Spendings.csv_80CE99ACCE6249C88815413D56A3698E]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Sub_Category</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Sub_Category]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Sub_Category</remote-alias>
+              <ordinal>6</ordinal>
+              <family>Spendings.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>37</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[Spendings.csv_80CE99ACCE6249C88815413D56A3698E]</object-id>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <object-graph>
+        <objects>
+          <object caption='Spendings.csv' id='Spendings.csv_80CE99ACCE6249C88815413D56A3698E'>
+            <properties context=''>
+              <relation connection='textscan.0is07gu1ajdtzg1cwp00a0tvmekl' name='Spendings.csv' table='[Spendings#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='date' name='Posting Date' ordinal='0' />
+                  <column datatype='date' name='Data of Transaction' ordinal='1' />
+                  <column datatype='string' name='Description' ordinal='2' />
+                  <column datatype='real' name='Amt' ordinal='3' />
+                  <column datatype='string' name='Acc Balance after opp' ordinal='4' />
+                  <column datatype='string' name='Main_Category' ordinal='5' />
+                  <column datatype='string' name='Sub_Category' ordinal='6' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Extract' table='[Extract].[Extract]' type='table' />
+            </properties>
+          </object>
+        </objects>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <table>
+        <view>
+          <datasources />
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{CB125436-CBE0-42D0-B583-FBBA9C0CC595}' />
+    </worksheet>
+    <worksheet name='Sheet 2'>
+      <table>
+        <view>
+          <datasources />
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{D380EAA8-BD34-432F-B5F6-C00AE9B53CAF}' />
+    </worksheet>
+  </worksheets>
+  <windows source-height='72'>
+    <window class='worksheet' maximized='true' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1qvi6f80lz6sxw1f2lfej1onih5f].[none:Main_Category:nk]</field>
+            <field>[federated.1qvi6f80lz6sxw1f2lfej1onih5f].[none:Sub_Category:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{4A9A9B89-BD1A-4020-B6D8-845089469BAA}' />
+    </window>
+    <window class='worksheet' name='Sheet 2'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{A21ABB2A-971A-4066-8F7F-2520F91610EF}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='384' name='Sheet 1' width='384'>
+      iVBORw0KGgoAAAANSUhEUgAAAYAAAAGACAYAAACkx7W/AAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAAFXUlEQVR4nO3VMQEAIAzAMMC/5yFjRxMF/XpnZg4AOW87AIAdBgAQZQAAUQYAEGUAAFEG
+      ABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAA
+      UQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBl
+      AABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYA
+      EGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABR
+      BgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUA
+      AFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQ
+      ZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEG
+      ABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAA
+      UQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBl
+      AABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYA
+      EGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABR
+      BgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUA
+      AFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQ
+      ZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEG
+      ABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAA
+      UQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBl
+      AABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYA
+      EGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABR
+      BgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUA
+      AFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQ
+      ZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEG
+      ABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAA
+      UQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBl
+      AABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYA
+      EGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEfFxoG/IiMv0YAAAAASUVORK5CYII=
+    </thumbnail>
+    <thumbnail height='384' name='Sheet 2' width='384'>
+      iVBORw0KGgoAAAANSUhEUgAAAYAAAAGACAYAAACkx7W/AAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAAFXUlEQVR4nO3VMQEAIAzAMMC/5yFjRxMF/XpnZg4AOW87AIAdBgAQZQAAUQYAEGUAAFEG
+      ABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAA
+      UQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBl
+      AABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYA
+      EGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABR
+      BgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUA
+      AFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQ
+      ZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEG
+      ABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAA
+      UQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBl
+      AABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYA
+      EGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABR
+      BgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUA
+      AFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQ
+      ZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEG
+      ABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAA
+      UQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBl
+      AABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYA
+      EGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABR
+      BgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUA
+      AFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQ
+      ZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEG
+      ABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAA
+      UQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBl
+      AABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYA
+      EGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEfFxoG/IiMv0YAAAAASUVORK5CYII=
+    </thumbnail>
+  </thumbnails>
+</workbook>
