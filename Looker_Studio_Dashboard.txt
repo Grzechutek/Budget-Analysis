@@ -1,0 +1,3 @@
+Please see Dashboard thats visualizate genereted data in Looker Studio:
+
+https://lookerstudio.google.com/reporting/650bea72-e6b7-423f-87b0-4b2f2e7963f0

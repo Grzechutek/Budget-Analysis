@@ -4,12 +4,9 @@ Multiple persona in haushold:
 -Make func data_cleaning_for_gpt more efficient, to minimize manual cleaning
 -Make commands to move used file to old data folder 
 -Add prognosis for further months
--plotfy  do robienia 
+-In Looker Studio,add page to analyze Income vs Spendings:
+    *how many times account balance was below 0 
 
 
 
-Filtry:
--timeline
--select box po kategoriach 
 
--dodaj tez count w róznych sub categoriach
