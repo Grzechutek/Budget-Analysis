@@ -1,0 +1,10 @@
+#  API
+.env
+
+# Virtual enviroment
+venv/
+.venv/
+__pycache__/
+
+# System
+.DS_Store

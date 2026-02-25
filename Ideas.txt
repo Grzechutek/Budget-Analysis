@@ -1,8 +1,7 @@
-
-Multiple persona in haushold:
+Some ideas how this procject can get better and better over the time:
+-Add more types of bank statements
 -Add possibility to compering and adding common expenses beetween different persons in the same household
 -Make func data_cleaning_for_gpt more efficient, to minimize manual cleaning
--Make commands to move used file to old data folder 
 -Add prognosis for further months
 -In Looker Studio,add page to analyze Income vs Spendings:
     *how many times account balance was below 0 

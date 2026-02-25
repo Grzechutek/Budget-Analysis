@@ -1,4 +1,4 @@
-financial_report = """
+financial_report_manual = """
 **Detailed Financial Analysis Report**
 
 **1. Executive Summary**

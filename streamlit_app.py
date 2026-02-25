@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 import matplotlib.dates as mdates
+import json
 
 
 
@@ -288,14 +289,25 @@ with col2:
     ax_3.xaxis.set_major_locator(mdates.MonthLocator())
     ax_3.xaxis.set_major_formatter(mdates.DateFormatter('%B'))
     
+    ax_3.legend(loc='upper left', bbox_to_anchor=(1.02, 1), title="Kategorie")
+    
     ax_3.set_xlabel("Time")
     ax_3.set_ylabel("Amount")
+
+    plt.tight_layout()
+    
     st.pyplot(fig_3)
 
     st.subheader("AI Summary")
-
-    from AI_financial_report import financial_report
     
+    from AI_financial_report import financial_report_manual
+
+
+    with open('Data_for_AI/financial_report.json', 'r', encoding='utf-8') as f:
+        data = json.load(f)
+        financial_report = data['report_content']
+    
+    Final_financial_report=financial_report
     st.write(financial_report)
 
 

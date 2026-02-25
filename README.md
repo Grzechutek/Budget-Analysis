@@ -1,10 +1,18 @@
-# Budget Analysis 💰
+# Budget Analysis
 
 A comprehensive personal finance management and analysis tool that automates bank statement processing, transaction categorization, and budget insights powered by AI.
 
+## About This Project
+
+This project was created as a personal initiative to develop a more advanced financial analysis solution than what is typically available in standard banking applications. While the system was originally built for personal use and optimized for Polish bank statements, it demonstrates a practical approach to financial data processing and analysis.
+
+**Important Note:** This project is designed specifically for bank statements from one bank (it will be developed in the future). If you use a different bank or are in another country, the core PDF extraction functionality may work, but the transaction mapping rules are tailored for Polish merchants and banking conventions. You may need to adapt the categorization dictionary (`mapping_rules`) to match your bank's data format and your local merchants.
+
+**Project Goals:** This project showcases practical skills in data engineering, automation, and rapid technology and AI adoption. Throughout development, I gained expertise in PDF processing, data cleaning, AI integration, and full-stack visualization tools. These capabilities directly translate to quickly learning and implementing new technologies and methodologies in professional settings.
+
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Overview](#overview)
 - [Features](#features)
@@ -14,11 +22,13 @@ A comprehensive personal finance management and analysis tool that automates ban
 - [Workflow](#workflow)
 - [Technologies](#technologies)
 - [Data Flow](#data-flow)
+- [Dashboards & Visualizations](#dashboards--visualizations)
+- [SQL Analysis](#sql-analysis)
 - [Future Enhancements](#future-enhancements)
 
 ---
 
-## 🎯 Overview
+## Overview
 
 This project streamlines personal financial management by:
 
@@ -29,11 +39,11 @@ This project streamlines personal financial management by:
 5. **Visualizing** insights through interactive dashboards
 6. **Generating** AI-powered financial recommendations
 
-The system uses AI assistance (ChatGPT/Gemini) to maintain and update transaction categorization rules monthly, ensuring accuracy while minimizing manual classification efforts.
+The system uses Gemini API to maintain and update transaction categorization rules monthly, ensuring accuracy while minimizing manual classification efforts.
 
 ---
 
-## ✨ Features
+## Features
 
 ### Core Functionality
 
@@ -53,16 +63,20 @@ The system uses AI assistance (ChatGPT/Gemini) to maintain and update transactio
 - **Multi-Level Categorization**: Main categories and detailed subcategories
 - **Transaction Filtering**: By date range, category, and subcategory
 - **Financial Metrics**: Total spending, averages, min/max values, transaction frequency
+- **SQL Analysis**: DuckDB integration for advanced data queries
+- **Google Looker Studio Dashboard**: Interactive cloud-based visualizations
+- **Virtual Environment**: Pre-configured Python environment with dependencies
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 Budget Analysis/
 │
-├── financial_analysis.ipynb          # Main analysis notebook
-├── streamlit_app.py                  # Interactive dashboard
+├── financial_analysis.ipynb          # Main analysis notebook (Camelot, Pandas)
+├── SQL_code.ipynb                    # SQL queries using DuckDB for analysis
+├── streamlit_app.py                  # Interactive Streamlit dashboard
 ├── AI_financial_report.py            # Generated financial report (Python variable)
 │
 ├── Data_for_AI/                      # Data exported for AI analysis
@@ -72,7 +86,7 @@ Budget Analysis/
 │   ├── fake_combined_before_categorization.csv
 │   └── Update promt for budget analyze.pdf
 │
-├── Data_for_tableau/                 # Data for Tableau visualizations
+├── Data_for_Looker/                  # Data for Google Looker Studio Dashboard
 │   ├── Income.csv
 │   ├── Income_Sub_Cat_grupped.csv
 │   ├── Spendings.csv
@@ -83,45 +97,64 @@ Budget Analysis/
 ├── New Bank Data/                    # Recent bank statements (PDFs)
 ├── fake_data/                        # Test data (Excel files)
 │
-├── Budget Analysis.twb               # Tableau workbook
+├── venv/                             # Python virtual environment
+├── .env                              # Environment variables (local)
+├── .env.example                      # Example environment variables
+│
+├
+├── Looker_Studio_Dashboard.txt       # Link to Google Looker Studio Dashboard
 ├── prompts.txt                       # AI prompts for dictionary updates & analysis
 ├── Ideas.txt                         # Future enhancement ideas
-└── README.md                         # This file
+├── README.md                         # This file
+└── .gitignore                        # Git ignore rules
 ```
 
 ---
 
-## 🚀 Installation
+## Installation
 
 ### Prerequisites
 
 - Python 3.8+
 - pip package manager
-- Tableau (optional, for advanced visualizations)
+- Google account (for Looker Studio Dashboard)
+
+### Virtual Environment Setup
+
+Create and activate a Python virtual environment:
+
+```bash
+python3 -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
 
 ### Required Libraries
 
 ```bash
-pip install pandas
-pip install camelot-py
-pip install opencv-python
-pip install PyPDF2
-pip install fpdf2
-pip install streamlit
-pip install seaborn
-pip install matplotlib
-pip install numpy
+pip install --upgrade pip
+pip install pandas camelot-py opencv-python PyPDF2 fpdf2
+pip install streamlit seaborn matplotlib numpy
+pip install duckdb
+pip install jupyter
 ```
 
-Or install from a requirements file:
+Or install all dependencies from a requirements file (if available):
 
 ```bash
 pip install -r requirements.txt
 ```
 
+### Environment Configuration
+
+Copy `.env.example` to `.env` and configure your settings:
+
+```bash
+cp .env.example .env
+```
+
 ---
 
-## 💻 Usage
+## Usage
 
 ### 1. **Prepare Bank Data**
 
@@ -178,7 +211,7 @@ streamlit run streamlit_app.py
 
 ### 5. **Generate Financial Insights**
 
-For AI-powered financial analysis:
+For AI-powered financial analysis,just run a code with connected Gemini API or:
 
 1. Generate the PDF summary: `Update promt for budget analyze.pdf`
 2. Use the "Prompt for AI financial advices" from `prompts.txt`
@@ -186,17 +219,37 @@ For AI-powered financial analysis:
 4. Receive personalized budget recommendations
 5. The analysis output is saved as `AI_financial_report.py`
 
-### 6. **Tableau Visualization**
+### 7. **SQL Analysis with DuckDB**
 
-Open `Budget Analysis.twb` in Tableau Desktop:
+Run `SQL_code.ipynb` for advanced SQL queries:
 
-- Pre-configured income and spending dashboards
-- Filter by category and time period
-- Export for presentations or further analysis
+```bash
+jupyter notebook SQL_code.ipynb
+```
+
+**Available Analyses:**
+
+- Income and spending summaries by category
+- Filtered queries (e.g., transactions > $1,000)
+- Union of income and spending data
+- Custom aggregations and groupings
+
+### 8. **Google Looker Studio Dashboard**
+
+View the interactive cloud-based dashboard:
+
+📊 **[Open Looker Studio Dashboard](https://lookerstudio.google.com/reporting/650bea72-e6b7-423f-87b0-4b2f2e7963f0)**
+
+**Features:**
+
+- Real-time data visualization
+- Interactive filters and breakdowns
+- Shareable reports
+- Mobile-friendly interface
 
 ---
 
-## 🔄 Workflow
+## Workflow
 
 ```
 Bank Statements (PDFs)
@@ -222,22 +275,89 @@ Re-run Notebook (with new rules)
 
 ---
 
-## 🛠️ Technologies
+## Technologies
 
 | Technology               | Purpose                       |
 | ------------------------ | ----------------------------- |
 | **Python 3.8+**          | Core language                 |
 | **Pandas**               | Data manipulation & analysis  |
 | **Camelot**              | PDF table extraction          |
+| **DuckDB**               | SQL queries on DataFrames     |
 | **Streamlit**            | Interactive web dashboard     |
 | **Matplotlib & Seaborn** | Data visualization            |
 | **FPDF2**                | PDF generation                |
 | **Tableau**              | Advanced BI visualizations    |
+| **Google Looker Studio** | Cloud-based dashboard         |
+| **Jupyter**              | Interactive notebooks         |
 | **ChatGPT/Gemini API**   | AI-powered dictionary updates |
 
 ---
 
-## 📊 Data Flow
+## Dashboards & Visualizations
+
+### Streamlit Dashboard
+
+Interactive web-based dashboard with real-time filtering:
+
+- **Date Range Slider**: Select analysis period
+- **Category Filters**: Multi-select main and sub-categories
+- **Charts**: Pie charts, bar charts, line charts
+- **Statistics**: Totals, averages, min/max values
+
+**Access**: `streamlit run streamlit_app.py`
+
+### Google Looker Studio
+
+Cloud-based BI dashboard with professional visualizations:
+
+- **Link**: [Budget Analysis Dashboard](https://lookerstudio.google.com/reporting/650bea72-e6b7-423f-87b0-4b2f2e7963f0)
+- **Features**: Automatic data refresh, shareable reports, mobile-friendly
+- **Data Source**: `Data_for_Looker/` CSV files
+
+---
+
+## SQL Analysis
+
+### DuckDB Integration
+
+Advanced data queries using SQL on DataFrames:
+
+```bash
+jupyter notebook SQL_code.ipynb
+```
+
+**Sample Queries Included:**
+
+```sql
+-- Income by category
+SELECT Main_Category, ROUND(SUM(Amt), 2) as Total
+FROM income
+GROUP BY Main_Category
+ORDER BY Total DESC;
+
+-- High-value transactions
+SELECT Sub_Category, ROUND(SUM(Amt), 2) as Total
+FROM spendings
+GROUP BY Sub_Category
+HAVING SUM(Amt) > 1000
+ORDER BY Total DESC;
+
+-- Union of income and spending
+SELECT * FROM income
+UNION ALL
+SELECT * FROM spendings;
+```
+
+**Benefits:**
+
+- Familiar SQL syntax
+- Performance optimization
+- Complex joins and aggregations
+- Type-safe operations
+
+---
+
+## Data Flow
 
 ### Data Processing Pipeline
 
@@ -286,7 +406,7 @@ df_analysis = df.groupby("Main_Category").agg({
 
 ---
 
-## 🎯 Key Functions
+## Key Functions
 
 ### `reading_pdf_from_folder(folder_name)`
 
@@ -306,7 +426,7 @@ Maps transaction descriptions to Main and Sub categories using regex keyword mat
 
 ---
 
-## 📈 Analysis Features
+## Analysis Features
 
 The notebook generates comprehensive statistics including:
 
@@ -328,7 +448,7 @@ The notebook generates comprehensive statistics including:
 
 ---
 
-## 🚧 Future Enhancements
+## Future Enhancements
 
 Planned features (from `Ideas.txt`):
 
@@ -352,7 +472,7 @@ Planned features (from `Ideas.txt`):
 
 ---
 
-## 📝 Notes
+## Notes
 
 ### Language & Localization
 
@@ -378,32 +498,38 @@ Planned features (from `Ideas.txt`):
 
 ---
 
-## 📞 Support
+## Support
 
 For issues or questions:
 
 1. Check `prompts.txt` for detailed AI prompts
-2. Review `Ideas.txt` for known limitations
+2. Review `Ideas.txt` for known limitations and planned features
 3. Examine the notebook cells for data validation steps
+4. Review `SQL_code.ipynb` for query examples
+5. Check Looker Studio dashboard link in `Looker_Studio_Dashboard.txt`
 
 ---
 
-## 📄 License
+## License
 
-Personal project - feel free to adapt and extend for your needs.
+Personal projectxs
 
 ---
 
-## 🎉 Getting Started
+## Getting Started
 
 1. Clone/download this repository
-2. Install dependencies: `pip install -r requirements.txt`
-3. Place your bank PDFs in `New Bank Data/` folder
-4. Run `financial_analysis.ipynb`
-5. Launch dashboard: `streamlit run streamlit_app.py`
-6. Explore your budget! 📊
+2. Create virtual environment: `python3 -m venv venv`
+3. Activate environment: `source venv/bin/activate`
+4. Install dependencies: `pip install -r requirements.txt`
+5. Place your bank PDFs in `New Bank Data/` folder
+6. Run main notebook: `jupyter notebook financial_analysis.ipynb`
+7. Launch dashboard: `streamlit run streamlit_app.py`
+8. View cloud dashboard: Check link in `Looker_Studio_Dashboard.txt`
+9. Explore your budget!
 
 ---
 
 **Last Updated:** February 2026  
-**Project Status:** Active Development
+**Project Status:** Active Development  
+**Python Version:** 3.8+
